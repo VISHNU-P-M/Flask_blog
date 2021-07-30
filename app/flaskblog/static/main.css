@@ -1,0 +1,30 @@
+body{
+    background-color: lightblue;
+}
+.login-div{
+    width: 400px;
+    height: 300px;
+    padding: 10px;
+    background-color: lightcoral;
+}
+
+.media{
+    background-color: aliceblue;
+    width: 500px;
+    padding: 2em;
+    display: flex;
+}
+.content-section{
+    width: 500px;
+}
+.account-img{
+    width: 5em;
+}
+
+.media-body{
+    margin-left: 2em;
+}
+.collapse{
+    display:flex ;
+    place-content: center;
+}

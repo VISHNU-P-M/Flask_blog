@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Home Page</h1>
+
+{% for post in posts %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <h2> {{ post.author.username }} </h2>
+                {% if post.author == current_user %}
+                    <a href="/update-post/{{post.id}}" style="text-decoration: none;"><button class="btn-info" >Update</button></a>
+                    <a href="/delete-post/{{post.id}}" style="text-decoration: none;"><button class="btn-danger">Delete</button></a>
+                    <br>
+                {% endif %}
+                <small class="text-muted"> {{ post.date_posted.strftime('%d-%m-%y') }} </small>
+            </div>
+            <h3> {{ post.title }}</h3>
+            <p class="article-content"> {{ post.content }} </p>
+        </div>
+    </article>
+    <br>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-section" style="width: 400px;">
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.email.label(class='form-control-label') }}
+            {%  if form.email.errors %}
+                {{ form.email(class='form-control form-control-lg is-invalid') }}
+                {% for error in form.email.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            {% else %}
+                {{ form.email(class='form-control form-control-lg') }}
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.password.label(class='form-control-label') }}
+            {%  if form.password.errors %}
+                {{ form.password(class='form-control form-control-lg is-invalid') }}
+                {% for error in form.password.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            {% else %}
+                {{ form.password(class='form-control form-control-lg') }}
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.remember.label(class='form-control-label') }}
+            {{ form.remember(class='form-check-input') }}
+        </div>
+        <div class="form-group">
+            {{ form.login(class='btn btn-outline-info') }}
+            <a href="{{ url_for('users.request_reset') }}">forgot password</a>
+        </div>
+    </form>
+    <div class="border-top">
+        <small>
+            New Here? <a href="{{ url_for('users.register') }}">Sign up</a>
+        </small>
+    </div>
+</div>
+{% endblock %}
